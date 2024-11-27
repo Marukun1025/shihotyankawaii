@@ -10,8 +10,6 @@
 	<style>
 		.content{
 			background-color:#f9f9f9;
-			border-radius:20px;
-			padding:20px;
 		}
 		body{
 			background-color:#ccff00;
@@ -30,31 +28,31 @@
 		}
 		input{
 			border-radius:4px;
-			border:1px solid #000000;
+			border:1.5px solid #000000;
 		}
 		input:focus{
-			background-color:#C4E2FF;
+			background-color:#C4E2FF
 		}
 		button{
 		height:80px;
 			width:200px;
 			border-radius:4px;
-			border:1.2px solid #000000;
+			border:1.5px solid #000000;
 			transition:background-color 0.3s ease;
 		}
 		button:hover{
 			background-color:#A4A4A4;
-			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+			 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
 		}
 		.btntxt{
-			font-size:22px;
+			font-size:25px;
 		}
-	
-textarea{
-	border:1px solid #000000;	
-	border-radius:4px;
-}
-		
+		.btntxt:hover{
+			color:#FFFFFF;
+		}
+		.underline{
+			text-decoration:underline;
+		}
 		
 	</style>
 	
@@ -71,9 +69,9 @@ textarea{
 		2.志歩ちゃんは、成城学園前からドルトンまでの2000mを歩きます。
 		志歩ちゃんが歩く速度が2倍、3倍...となると、かかる時間はどのように変化しますか？</h3>
 		<p>分数をイメージして答えてね。</p>
-	<input name="dai2no2"type="number" id="dai2_2" placeholder="志"/><span>　　</span><input name="dai2no4" id="dai2_4" type="number" placeholder="か"/>
+	<input name="dai2no2"type="number" id="dai2_2"/><span>　　</span><input name="dai2no4" id="dai2_4" type="number"/>
 		<br>
-	<input name="dai2no1"type="number" id="dai2_1" placeholder="歩"/><span>倍、</span><input name="dai2no3" id="dai2_3" type="number" placeholder="わ"/><span>倍...</span>
+	<input name="dai2no1" type="number" id="dai2_1"/><span>倍、</span><input name="dai2no3" id="dai2_3" type="number"/><span>倍...</span>
 		
 
 	</div>
@@ -105,30 +103,30 @@ textarea{
 		</div>
 	</div>
 	<div class="dai4">
-	<h3>4.次のグラフの比例定数を答えなさい。</h3>
+	<h3 class="underline">4.次のグラフの比例定数を答えなさい。</h3>
 	
 		
 		<img class="gurafu1" src="https://i.imgur.com/lJYDGP7.png" alt="ごめん！画像が表示されないから、飛ばしてね☆"/>
 		<br>
-		<span>比例定数(α):</span><input type="number" name="dai4no1" id="dai4" placeholder="α">
+		<span>比例定数(α):</span><input type="number" name="dai4no1" id="dai4">
 	
 	</div>
 	<div class="dai5">
 	<h3>5.yはxに反比例し、xが5の時、yは9です。比例定数(α)を答えなさい。</h3>
-	<input type="text" name="dai5" id="dai5" placeholder="α"/>
+	<input type="text" name="dai5" id="dai5"/>
 	</div>
-		<button id="submitBtn"><div class="btntxt">答えを送信</div></button>
+		<button id="submitBtn">答えを送信</button>
 		<h3>最後に...このページを通してどのようなことを感じたか教えてください。特になければ、志歩ちゃんかわいいでもなんでもいいです。</h3>
-		<form action="https://formspree.io/f/xnnqbwbw" method="POST">
+		<form action="https://formspree.io/f/xnnqbwbw" method="POST" id="furim">
 			<label for="shimei">お名前</label>
 			<br>
 		<input type="text" name="shimei" id="shimei" placeholder="氏名" required/>
 			<br>
 			<label for="kansou" >感想くれ</label>
 			<br>
-			<textarea id="kansou" name="kansou" placeholder="志歩ちゃんかわいかった！" required></textarea>
+			<textarea id="kansou" name="kansou" required></textarea>
 			<br>
-			<button type="submit"><div class="btntxt">送信</div></button>
+			<button type="submit" id="kansoushin"><div class="btntxt" onClick="getinput()">送信</div></button>
 		
 		
 		
@@ -192,9 +190,18 @@ if(score<=9){
 		
 		
 	}
-		document.getElementById("submitBtn").addEventListener("click",function(){
-				test();
-			});
+	
+		document.getElementById("submitBtn").addEventListener("click", function(){
+		test();
+	});
+
+	document.getElementById("furim").addEventListener("submit", function(event){
+		const input = document.getElementById("kansou").value;
+
+		if(input.includes("かわいくない")) {
+			event.preventDefault(); 
+			window.location.href = "https://marukun1025.github.io/wankurisagi"; 
+	});	
 	</script>
 
 </body>
