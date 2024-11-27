@@ -10,6 +10,8 @@
 	<style>
 		.content{
 			background-color:#f9f9f9;
+			border-radius:20px;
+			padding:20px;
 		}
 		body{
 			background-color:#ccff00;
@@ -104,7 +106,7 @@ textarea{
 	
 	</div>
 	<div class="dai5">
-	<h3>5.yはxに反比例し、xが5の時、yは225です。比例定数(α)を答えなさい。</h3>
+	<h3>5.yはxに反比例し、xが5の時、yは9です。比例定数(α)を答えなさい。</h3>
 	<input type="text" name="dai5" id="dai5" placeholder="α"/>
 	</div>
 		<button id="submitBtn">答えを送信</button>
@@ -170,7 +172,7 @@ textarea{
 			score++;
 		}
 		let answer5 = document.getElementById("dai5").value;
-		if(parseInt(answer5)===225){
+		if(parseInt(answer5)===45){
 			score++
 		}
 		
