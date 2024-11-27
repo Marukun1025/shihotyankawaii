@@ -10,8 +10,6 @@
 	<style>
 		.content{
 			background-color:#f9f9f9;
-			padding:20px;
-			border-radius:40px;
 		}
 		body{
 			background-color:#ccff00;
@@ -28,24 +26,22 @@
 		.dai4 input{
 			width:50px;
 		}
-		input {
-		border-radius:5px;
+		input{
+			border-radius:4px;
+			border:1px;
+		}
+		button{
+		height:80px;
+			width:200px;
+			border-radius:4px;
+		}
 		
-		}
-		textarea {
-			border-radius:5px;
-			}
-		button {
-			width:150px;
-			height:30px;
-			border-radius:5px;
-		}
+		
 	</style>
 	
 	<div class="content">
 	<h1>比例、反比例のテスト</h1>
 	<p>みんな、自分の能力をテストしてみよう！ちなみにこの背景色は志歩ちゃんのイメージカラーに最も近かったものだよ！</p>
-	
 		<h3>
 			1.志歩ちゃんは、秒速10mで走っています。スタートを0m地点とする場合、志歩ちゃんがスタートしてから18秒後には、何m地点にいますか？</h3>
 	<p>もしあなたの答えが50m地点だった場合、ここには50と入力してね。</p>
@@ -95,17 +91,15 @@
 		
 		<img class="gurafu1" src="https://i.imgur.com/lJYDGP7.png" alt="ごめん！画像が表示されないから、飛ばしてね☆"/>
 		<br>
-		<span>比例定数:</span><input type="number" name="dai4no1" id="dai4">
-		<p>　　　　　　x</p>
-	</div>
-	<div class="dai5">
-	<h3>5.</h3>
+		<span>比例定数(α):</span><input type="number" name="dai4no1" id="dai4">
 	
 	</div>
-		<a href="marukun1025.github.io/testkotae"><button id="submitBtn">答えを送信</button></a>
-		
-		
-		<h3>最後に、このページを通してどのようなことを感じたか教えてください。特になければ、志歩ちゃんかわいいでもなんでもいいです。</h3>
+	<div class="dai5">
+	<h3>5.yはxに反比例し、xが5の時、yは225です。比例定数(α)を答えなさい。</h3>
+	<input type="text" name="dai5" id="dai5"/>
+	</div>
+		<button id="submitBtn">答えを送信</button>
+		<h3>最後に...このページを通してどのようなことを感じたか教えてください。特になければ、志歩ちゃんかわいいでもなんでもいいです。</h3>
 		<form action="https://formspree.io/f/xnnqbwbw" method="POST">
 			<label for="shimei">お名前</label>
 			<br>
@@ -166,9 +160,13 @@
 		if(parseInt(answer4)===8){
 			score++;
 		}
+		let answer5 = document.getElementById("dai5").value;
+		if(parseInt(answer5)===225){
+			score++
+		}
 		
-if(score<=8){
-	alert("あなたの点数は"+score+"/9点です");
+if(score<=9){
+	alert("あなたの点数は"+score+"/10点です");
 }else{
 	alert("凄い！満点おめでとう！")
 }
@@ -179,5 +177,6 @@ if(score<=8){
 				test();
 			});
 	</script>
+
 </body>
 </html>
